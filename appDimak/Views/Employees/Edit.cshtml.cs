@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using appDimak.Models;
 
-namespace appDimak.Views.Employeers
+namespace appDimak.Views.Employees
 {
     public class EditModel : PageModel
     {
