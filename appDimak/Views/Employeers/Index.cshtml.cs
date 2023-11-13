@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using appDimak.Models;
 
-namespace appDimak.Views.Employees
+namespace appDimak.Views.Employeers
 {
     public class IndexModel : PageModel
     {

@@ -1,4 +1,5 @@
-﻿@model IEnumerable<appDimak.Models.Employee>
+﻿@page
+@model appDimak.Views.Employeers.IndexModel
 
 @{
     ViewData["Title"] = "Index";
@@ -7,76 +8,76 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-page="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.LastName)
+                @Html.DisplayNameFor(model => model.Employee[0].LastName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FirstName)
+                @Html.DisplayNameFor(model => model.Employee[0].FirstName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Title)
+                @Html.DisplayNameFor(model => model.Employee[0].Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TitleOfCourtesy)
+                @Html.DisplayNameFor(model => model.Employee[0].TitleOfCourtesy)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.BirthDate)
+                @Html.DisplayNameFor(model => model.Employee[0].BirthDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.HireDate)
+                @Html.DisplayNameFor(model => model.Employee[0].HireDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Address)
+                @Html.DisplayNameFor(model => model.Employee[0].Address)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.City)
+                @Html.DisplayNameFor(model => model.Employee[0].City)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Region)
+                @Html.DisplayNameFor(model => model.Employee[0].Region)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PostalCode)
+                @Html.DisplayNameFor(model => model.Employee[0].PostalCode)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Country)
+                @Html.DisplayNameFor(model => model.Employee[0].Country)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.HomePhone)
+                @Html.DisplayNameFor(model => model.Employee[0].HomePhone)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Extension)
+                @Html.DisplayNameFor(model => model.Employee[0].Extension)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Photo)
+                @Html.DisplayNameFor(model => model.Employee[0].Photo)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Notes)
+                @Html.DisplayNameFor(model => model.Employee[0].Notes)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PhotoPath)
+                @Html.DisplayNameFor(model => model.Employee[0].PhotoPath)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Email)
+                @Html.DisplayNameFor(model => model.Employee[0].Email)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Password)
+                @Html.DisplayNameFor(model => model.Employee[0].Password)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.AdminFlag)
+                @Html.DisplayNameFor(model => model.Employee[0].AdminFlag)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ReportsToNavigation)
+                @Html.DisplayNameFor(model => model.Employee[0].ReportsToNavigation)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.Employee) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.LastName)
@@ -139,9 +140,9 @@
                 @Html.DisplayFor(modelItem => item.ReportsToNavigation.Email)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.EmployeeId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.EmployeeId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.EmployeeId">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.EmployeeId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.EmployeeId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.EmployeeId">Delete</a>
             </td>
         </tr>
 }

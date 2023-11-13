@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using appDimak.Models;
 
-namespace appDimak.Views.Employees
+namespace appDimak.Views.Employeers
 {
     public class CreateModel : PageModel
     {
