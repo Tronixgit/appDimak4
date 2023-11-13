@@ -18,13 +18,11 @@ namespace appDimak.Controllers
             _context = context;
         }
 
-        // GET: OrderDetails cambios
-       
+        // GET: OrderDetails
         public async Task<IActionResult> Index()
         {
-            return _context.OrderDetails != null ?
-                      View(await _context.OrderDetails.ToListAsync()) :
-                      Problem("Entity set 'NorthwindContext.OrderDetails' is null.");
+            var northwindContext = _context.OrderDetails.Include(o => o.Order).Include(o => o.Product);
+            return View(await northwindContext.ToListAsync());
         }
 
         // GET: OrderDetails/Details/5
@@ -73,6 +71,9 @@ namespace appDimak.Controllers
             return View(orderDetail);
         }
 
+
+
+        
         // GET: OrderDetails/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -90,7 +91,6 @@ namespace appDimak.Controllers
             ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductId", orderDetail.ProductId);
             return View(orderDetail);
         }
-
         // POST: OrderDetails/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
