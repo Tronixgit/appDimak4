@@ -4,7 +4,7 @@
     ViewData["Title"] = "Employees";
 }
 
-<h1>Index</h1>
+<h1>Employees</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -60,15 +60,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.PhotoPath)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Password)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AdminFlag)
-            </th>
+                               
             <th>
                 @Html.DisplayNameFor(model => model.ReportsToNavigation)
             </th>
@@ -126,18 +118,8 @@
             <td>
                 @Html.DisplayFor(modelItem => item.PhotoPath)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Password)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AdminFlag)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReportsToNavigation.Email)
-            </td>
+            
+
             <td>
                 <a asp-action="Edit" asp-route-id="@item.EmployeeId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.EmployeeId">Details</a> |

@@ -18,11 +18,13 @@ namespace appDimak.Controllers
             _context = context;
         }
 
-        // GET: OrderDetails
+        // GET: OrderDetails cambios
+       
         public async Task<IActionResult> Index()
         {
-            var northwindContext = _context.OrderDetails.Include(o => o.Order).Include(o => o.Product);
-            return View(await northwindContext.ToListAsync());
+            return _context.OrderDetails != null ?
+                      View(await _context.OrderDetails.ToListAsync()) :
+                      Problem("Entity set 'NorthwindContext.OrderDetails' is null.");
         }
 
         // GET: OrderDetails/Details/5

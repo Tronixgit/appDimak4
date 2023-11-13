@@ -18,11 +18,12 @@ namespace appDimak.Controllers
             _context = context;
         }
 
-        // GET: Products
+        // GET: Products cambios
         public async Task<IActionResult> Index()
         {
-            var northwindContext = _context.Products.Include(p => p.Category).Include(p => p.Supplier);
-            return View(await northwindContext.ToListAsync());
+            return _context.Products != null ?
+                      View(await _context.Products.ToListAsync()) :
+                      Problem("Entity set 'NorthwindContext.Products' is null.");
         }
 
         // GET: Products/Details/5
