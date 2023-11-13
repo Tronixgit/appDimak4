@@ -73,23 +73,28 @@ namespace appDimak.Controllers
 
 
 
-        
+
         // GET: OrderDetails/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+
+
+
+        public async Task<IActionResult> Edit(int? orderId, int? productId)
         {
-            if (id == null || _context.OrderDetails == null)
+            if (orderId == null || productId == null || _context.OrderDetails == null)
             {
                 return NotFound();
             }
 
-            var orderDetail = await _context.OrderDetails.FindAsync(id);
-            if (orderDetail == null)
+            //Ajustar la llamada FindAsync para usar la clave compuesta
+
+            var orderDetails = await _context.OrderDetails.FindAsync(orderId, productId);
+            if (orderDetails == null)
             {
                 return NotFound();
             }
-            ViewData["OrderId"] = new SelectList(_context.Orders, "OrderId", "OrderId", orderDetail.OrderId);
-            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductId", orderDetail.ProductId);
-            return View(orderDetail);
+            ViewData["OrderId"] = new SelectList(_context.Orders, "OrderId", "OrderId", orderDetails.OrderId);
+            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductId", orderDetails.ProductId);
+            return View(orderDetails);
         }
         // POST: OrderDetails/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
